@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 import os
 
-client = genai.Client(api_key=os.getenv("AIzaSyApk7AAPfTheG9OGcJ0RKNwPKkch5cuTLQ"))
+client = genai.Client(api_key=os.getenv("API_KI"))
 
 LLM_MODEL = "models/gemini-pro-latest"
 EMBED_MODEL = "models/text-embedding-004"
