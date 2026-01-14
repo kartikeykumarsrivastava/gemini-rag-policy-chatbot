@@ -4,8 +4,9 @@ import numpy as np
 import pickle
 import os
 
-client = genai.Client(api_key=os.getenv("API_KEY"))
-
+from vault_client import get_gemini_key
+client = genai.Client(api_key=get_gemini_key())
+    
 EMBEDDING_MODEL = "models/text-embedding-004"
 
 def embed_text(texts):
