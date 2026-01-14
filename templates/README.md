@@ -1,14 +1,14 @@
 
 
-# 📘 **Gemini RAG Policy Chatbot**
+# **Gemini RAG Policy Chatbot**
 
 A **secure, enterprise-grade AI assistant** that answers questions on company policy documents using **Google Gemini**, **RAG (Retrieval-Augmented Generation)**, **FAISS**, **Flask**, **JWT**, and **HashiCorp Vault**.
 
 This project demonstrates how large organizations can safely use LLMs **without exposing confidential data**.
 
----
 
-## 🧠 What This System Does
+
+## What This System Does
 
 * Reads multiple company policy PDFs
 * Converts them into searchable embeddings
@@ -22,17 +22,9 @@ No data is stored or trained by the LLM.
 
 ---
 
-## 🏗 Architecture
 
-![Architecture](architecture.png)
+## How It Works (Interactive Flow)
 
-*(Use the architecture diagram you generated here)*
-
----
-
-## 🔄 How It Works (Interactive Flow)
-
-```
 1. User logs in → receives JWT token
 2. User asks a question
 3. Flask validates JWT
@@ -44,11 +36,9 @@ No data is stored or trained by the LLM.
       - Retrieved policy chunks
 8. Gemini generates answer
 9. Response returned to user
-```
 
----
 
-## 🔐 Security Model
+##  Security Model
 
 | Layer       | Protection                                  |
 | ----------- | ------------------------------------------- |
@@ -66,11 +56,9 @@ This follows the same model used by:
 * Salesforce Einstein
 * Enterprise AI copilots
 
----
 
-## 📂 Project Structure
+##  Project Structure
 
-```
 rag_gemini_chatbot/
 │
 ├── app.py                # Flask API + UI
@@ -86,13 +74,10 @@ rag_gemini_chatbot/
 │     └── style.css
 ├── Dockerfile
 └── README.md
-```
 
----
+##  How to Run
 
-## 🚀 How to Run
-
-### 1️⃣ Start Vault
+### Start Vault
 
 ```bash
 vault server -dev
@@ -103,15 +88,15 @@ vault kv put secret/gemini api_key="YOUR_GEMINI_KEY"
 
 ---
 
-### 2️⃣ Install dependencies
+###  Install dependencies
 
 ```bash
 pip install flask google-genai faiss-cpu pypdf numpy hvac flask-jwt-extended
 ```
 
----
 
-### 3️⃣ Build vector database
+
+### Build vector database
 
 ```bash
 python -c "from ingest import load_all_pdfs, chunk_text; from vector_store import create_vector_db; text=load_all_pdfs(); chunks=chunk_text(text); create_vector_db(chunks)"
@@ -119,7 +104,7 @@ python -c "from ingest import load_all_pdfs, chunk_text; from vector_store impor
 
 ---
 
-### 4️⃣ Run application
+###  Run application
 
 ```bash
 python app.py
@@ -137,18 +122,18 @@ Login:
 admin / admin123
 ```
 
----
 
-## 🐳 Docker Support
+
+## Docker Support
 
 ```bash
 docker build -t gemini-rag .
 docker run -p 8000:8000 gemini-rag
 ```
 
----
 
-## 🧩 Why This Matters
+
+## Why This Matters
 
 This project demonstrates:
 
@@ -171,14 +156,5 @@ Using:
 
 ---
 
-## 🏆 Use Cases
-
-* HR Policy Assistant
-* Legal Contract Chatbot
-* Banking Policy Copilot
-* Insurance Guidelines Bot
-* Compliance Knowledge Base
-
----
 
 
